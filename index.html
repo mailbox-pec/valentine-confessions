@@ -36,42 +36,64 @@
             color: #555;
             font-size: 0.9rem;
             line-height: 1.4;
+            margin-bottom: 25px;
         }
 
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            color: #ff4d6d;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            margin-left: 2px;
+        }
+
+        /* The 'required' attribute works with these tags below */
+        input[type="text"],
         textarea {
             width: 100%;
-            height: 150px;
-            margin-top: 20px;
-            padding: 15px;
+            padding: 12px 15px;
             border: 2px solid #ffccd5;
             border-radius: 10px;
-            resize: none;
             box-sizing: border-box;
             font-family: inherit;
             outline: none;
+            transition: border-color 0.3s ease;
         }
 
+        input[type="text"]:focus,
         textarea:focus {
             border-color: #ff4d6d;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
         }
 
         button {
             background-color: #ff4d6d;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 25px;
             border-radius: 25px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px;
             width: 100%;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         button:hover {
             background-color: #c9184a;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 24, 74, 0.3);
         }
 
         .privacy-note {
@@ -89,7 +111,18 @@
         <p>Do you have a secret crush to confess? Write your Valentine's message here. It's completely anonymous.</p>
 
         <form action="https://formspree.io/f/xpqlvgqq" method="POST">
-            <textarea name="message" placeholder="Type your confession here..." required></textarea>
+
+            <div class="input-group">
+                <label for="to_person">To :</label>
+                <input type="text" id="to_person" name="Recipient" placeholder="Name of your crush..." required>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Your Message :</label>
+                <textarea id="message" name="Confession" placeholder="Type your confession here..." required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Valentine Confession!">
 
             <button type="submit">Send</button>
         </form>
